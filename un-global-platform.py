@@ -1,8 +1,7 @@
 import openai
-import llama_index
+#import llama_index
 from llama_index import LLMPredictor, GPTVectorStoreIndex, PromptHelper, download_loader
 import streamlit as st
-#from gpt_index import download_loader
 
 BASE_PROMPT = [{"role": "system", "content": """
     You are a strategy researcher based in the UK.
