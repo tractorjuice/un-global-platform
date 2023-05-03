@@ -1,6 +1,6 @@
 import openai
 import llama_index
-from llama_index import LLMPredictor, GPTSimpleVectorIndex, PromptHelper
+from llama_index import LLMPredictor, GPTVectorStoreIndex, PromptHelper
 import streamlit as st
 #from pathlib import Path
 from gpt_index import download_loader
@@ -20,7 +20,7 @@ YoutubeTranscriptReader = download_loader("YoutubeTranscriptReader")
 loader = YoutubeTranscriptReader()
 documents = loader.load_data(ytlinks=['https://www.youtube.com/watch?v=kUPCGrTUDB8'])
 
-index = GPTSimpleVectorIndex.from_documents(documents)
+index = GPTVectorStoreIndex.from_documents(documents)
 
 st.set_page_config(page_title="UN Global Platform & Open Source")
 st.title("UN Global Platform")
