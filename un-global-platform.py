@@ -28,15 +28,13 @@ st.sidebar.markdown("Current Version: 0.0.2")
 st.video('https://youtu.be/kUPCGrTUDB8') 
 
 text = st.empty()
-
 prompt = st.text_input("Prompt", value="What is this video about?")
-
+query_engine = index.as_query_engine()
 if st.button("Send"):
     with st.spinner("Generating response..."):
         
-        response = index.query(prompt)
+        response = query_engine.query(prompt)
         text.text_area("Messages", response, height=250)
-
 if st.button("Clear"):
     st.session_state["messages"] = BASE_PROMPT
     show_messages(text)
